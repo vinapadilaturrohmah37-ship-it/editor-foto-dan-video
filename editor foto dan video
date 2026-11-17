@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor Foto & Video</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Editor Foto & Video</h1>
+            <p>Edit dengan mudah, langsung dari perangkatmu!</p>
+        </header>
+
+        <!-- Tab Pilihan -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="photo">📸 Editor Foto</button>
+            <button class="tab-btn" data-tab="video">🎥 Editor Video</button>
+        </div>
+
+        <!-- Editor Foto -->
+        <div id="photo-tab" class="tab-content active">
+            <div class="upload-area">
+                <input type="file" id="photo-input" accept="image/*">
+                <label for="photo-input" class="upload-label">
+                    Klik atau seret foto ke sini untuk upload
+                </label>
+            </div>
+
+            <div class="editor-layout">
+                <div class="preview-box">
+                    <h3>Pratinjau</h3>
+                    <canvas id="photo-canvas"></canvas>
+                </div>
+
+                <div class="controls">
+                    <h3>Pengaturan</h3>
+                    
+                    <div class="control-group">
+                        <label>Kecerahan: <span id="brightness-val">100</span>%</label>
+                        <input type="range" id="brightness" min="0" max="200" value="100">
+                    </div>
+                    <div class="control-group">
+                        <label>Kontras: <span id="contrast-val">100</span>%</label>
+                        <input type="range" id="contrast" min="0" max="200" value="100">
+                    </div>
+                    <div class="control-group">
+                        <label>Saturasi: <span id="saturate-val">100</span>%</label>
+                        <input type="range" id="saturate" min="0" max="200" value="100">
+                    </div>
+
+                    <h4>Filter</h4>
+                    <div class="filter-buttons">
+                        <button data-filter="none">Normal</button>
+                        <button data-filter="grayscale">Hitam Putih</button>
+                        <button data-filter="sepia">Sepia</button>
+                        <button data-filter="invert">Negatif</button>
+                    </div>
+
+                    <h4>Putar</h4>
+                    <div class="rotate-buttons">
+                        <button id="rotate-left">↶ 90°</button>
+                        <button id="rotate-right">↷ 90°</button>
+                    </div>
+
+                    <button id="save-photo" class="save-btn">💾 Simpan Foto</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Editor Video -->
+        <div id="video-tab" class="tab-content">
+            <div class="upload-area">
+                <input type="file" id="video-input" accept="video/*">
+                <label for="video-input" class="upload-label">
+                    Klik atau seret video ke sini untuk upload
+                </label>
+            </div>
+
+            <div class="editor-layout">
+                <div class="preview-box">
+                    <h3>Pratinjau Video</h3>
+                    <video id="video-preview" controls></video>
+                </div>
+
+                <div class="controls">
+                    <h3>Pengaturan Video</h3>
+                    
+                    <div class="control-group">
+                        <label>Kecepatan: <span id="speed-val">1.0</span>x</label>
+                        <input type="range" id="speed" min="0.5" max="2" step="0.1" value="1">
+                    </div>
+
+                    <div class="control-group">
+                        <label>Teks di Video:</label>
+                        <input type="text" id="text-overlay" placeholder="Tulis teks di sini...">
+                    </div>
+
+                    <button id="apply-text" class="action-btn">Terapkan Teks</button>
+                    <button id="save-video" class="save-btn">💾 Simpan Video</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
